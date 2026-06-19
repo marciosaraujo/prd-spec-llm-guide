@@ -176,7 +176,7 @@ Para este projeto:
 - Alguns CLIs já seguem esse padrão:
   - `create-prd` → gera PRD
   - `generate-tasks` → gera tasks do PRD
-  - `run-tasks` → executa tasks com IA [web:101][web:120]
+  - `run-tasks` → executa tasks com IA
 - Este `process-task-list.md` pode servir como documentação para humanos e para agentes.
 
 ---

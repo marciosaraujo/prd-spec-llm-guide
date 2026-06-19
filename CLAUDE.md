@@ -16,3 +16,5 @@ Kit de **PRD-driven / Spec-driven development** com LLM. Os arquivos aqui são t
 - Se algo contraria o PRD, **pare e avise** — não invente requisitos nem mude escopo.
 - Templates são moldes: copie para `docs/*.md` e preencha; não edite os `*-template.md`.
 - Prefira a solução mais simples consistente com a seção de Stack do PRD.
+- **Mudanças cirúrgicas**: toque só nos arquivos que a task exige; não mexa fora do escopo nem refatore "de passagem".
+- **Ao terminar a task, valide** (teste/lint/build focado) e diga o que ficou **sem verificar** — não afirme que passou se não rodou.
