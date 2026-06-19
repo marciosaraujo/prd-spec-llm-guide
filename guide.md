@@ -1,5 +1,3 @@
-Abaixo está um guia completo, agnóstico de domínio, em markdown, cobrindo todo o plano PRD-driven / Spec-driven para trabalhar com LLMs (Claude, etc.), sem amarrar em uma aplicação específica.
-
 Guia PRD-Driven / Spec-Driven para Desenvolvimento com LLMs
 Fluxo: Ideia → Spec/PRD → Task List → Execução (humano + IA).
 
