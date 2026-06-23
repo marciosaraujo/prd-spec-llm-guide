@@ -6,9 +6,10 @@ Kit de **PRD-driven / Spec-driven development** com LLM. Os arquivos aqui são t
 - `guide.md` — explicação conceitual do fluxo (leitura de fundo).
 - `docs/process-task-list.md` — guia operacional: como rodar o loop com a LLM.
 - `docs/idea-template.md`, `docs/prd-template.md`, `docs/tasks-template.md` — moldes vazios.
+- `.claude/skills/start/` — skill `/start` que conduz o fluxo do início (idea → prd → tasks → execução).
 
 ## Fluxo
-`idea.md` → `prd.md` → `tasks.md` → execução. **No PRD, no code**: não codar antes de ter um PRD minimamente consistente.
+`idea.md` → `prd.md` → `tasks.md` → execução. **No PRD, no code**: não codar antes de ter um PRD minimamente consistente. A skill `/start` automatiza esse fluxo; também pode ser feito manualmente a partir dos templates.
 
 ## Regras ao trabalhar num projeto que usa este kit
 - `prd.md` é a **fonte de verdade**. Código e tasks obedecem ao PRD, não o contrário.
