@@ -4,6 +4,16 @@
 
 ---
 
+## Histórico de Revisões
+
+*Mantenha um log de alterações para que tanto a equipe quanto a IA saibam o que mudou no decorrer do projeto.*
+
+| Data       | Versão | Autor   | Descrição das Mudanças                 |
+|------------|--------|---------|----------------------------------------|
+| YYYY-MM-DD | 1.0    | Nome    | Criação inicial do PRD                 |
+
+---
+
 ## 1. Visão geral
 
 ### 1.1 Contexto
@@ -160,19 +170,21 @@ Descreva as entidades principais e relações, em nível conceitual.
 
 ## 8. User stories e critérios de aceitação
 
-Defina user stories claras com critérios de aceitação testáveis.
+Defina user stories claras com critérios de aceitação testáveis. **Use o formato BDD (Behavior-Driven Development) rigorosamente.**
+> **Importante para a IA/Dev:** Qualquer implementação referente a estas histórias DEVE ser precedida pela escrita e execução dos testes baseados nestes critérios (TDD).
 
-Formato sugerido:
+Formato exigido:
 
 ```markdown
 ### US-001: Título
 - **Tipo**: (ex.: Must-have)
 - **Descrição**: Como <persona>, quero <objetivo> para <benefício>.
 
-**Critérios de aceitação:**
-- Given ...
-- When ...
-- Then ...
+**Critérios de aceitação (Gherkin):**
+- **Cenário 1:** Breve descrição do cenário
+  - **Given** [contexto inicial]
+  - **When** [ação do usuário/sistema]
+  - **Then** [resultado esperado]
 ```
 
 Repita para todas as histórias relevantes.

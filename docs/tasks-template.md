@@ -2,6 +2,7 @@
 
 > Derivado de `prd.md`. **Não é código**, não é backlog de bugs. É o roteiro de execução.
 > Convenção: tasks numeradas por seção (`2.1`, `2.2`...), com prioridade `[M]`/`[S]`/`[C]` e checkbox.
+> Para evitar que a IA ou o Dev execute tarefas fora de ordem, indique dependências explícitas (ex: `(Blocker: 1.1)`).
 
 ---
 
@@ -15,8 +16,8 @@
 
 ## 2. Backend / Core
 - [ ] 2.1 `[M]` Implementar skeleton do servidor / serviço
-- [ ] 2.2 `[M]` Implementar modelos de dados
-- [ ] 2.3 `[M]` Implementar endpoints básicos / APIs internas
+- [ ] 2.2 `[M]` Implementar modelos de dados (Blocker: 2.1)
+- [ ] 2.3 `[M]` Implementar endpoints básicos / APIs internas (Blocker: 2.2)
 
 ## 3. Frontend / UI (se houver)
 - [ ] 3.1 `[S]` Criar projeto base
