@@ -22,9 +22,8 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 
    e execute as tasks seguindo `docs/process-task-list.md`. **No PRD, no code.**
 
-> As skills (`/start` e `/next`) ficam em `.claude/skills/`. Numa cópia nova do template
-> elas só aparecem após reiniciar o Claude Code (o diretório precisa existir na
-> abertura da sessão).
+> As skills (`/start` e `/next`) ficam em `.claude/skills/` (para Claude Code) e `.gemini/skills/` (para Google Antigravity). 
+> Em projetos recém-copiados, as skills só aparecem após você reiniciar o seu assistente de IA (a pasta precisa estar lá na hora que a sessão iniciar).
 
 ## Destaques do Template
 
@@ -39,5 +38,5 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 | `guide.md` | Explicação conceitual do fluxo completo |
 | `docs/process-task-list.md` | Guia operacional do loop com a LLM |
 | `docs/*-template.md` | Moldes de idea, PRD e tasks |
-| `.claude/skills/` | Skills `/start` e `/next` que conduzem o fluxo via IA |
+| `.claude/skills/` & `.gemini/skills/` | Skills `/start` e `/next` que conduzem o fluxo via IA (Suporte múltiplo de agentes) |
 | `CLAUDE.md` | Regras de operação lidas pelo Claude Code |
