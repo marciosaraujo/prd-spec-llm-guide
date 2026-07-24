@@ -44,6 +44,7 @@ Apresente e **espere revisão humana** — o PRD é a fonte de verdade.
 Com o PRD aprovado, gere `docs/tasks.md` na estrutura de `@docs/tasks-template.md`:
 - Tasks numeradas, escopo pequeno (1–2h), prioridade `[M]`/`[S]`/`[C]`.
 - Cada task com **PRD:** (RFs/USs) e **DoD:** verificável.
+- **Proposição ativa de DoD:** Se o usuário não definir ou não souber como testar/validar, a IA DEVE propor ativamente o DoD técnico (comandos de teste unitário/integração/E2E, lint, build ou asserção) alinhado com a Stack do PRD.
 - Dependências explícitas `(Blocker: X.Y)` quando necessário.
 - Remova seções sem correspondente no PRD — não invente deploy/CI/LLM se o PRD não pedir.
 - Não gere código. Peça revisão de ordem e prioridade.

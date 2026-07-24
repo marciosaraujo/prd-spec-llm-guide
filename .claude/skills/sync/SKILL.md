@@ -16,7 +16,7 @@ Quando o PRD muda, as tasks precisam acompanhar. Esta skill **não gera código*
 1. **Ler fontes:** Leia `docs/prd.md` (visão, MoSCoW, user stories, fora de escopo, stack) e `docs/tasks.md` completo.
 2. **Diff mental (5–10 bullets):** Resuma o que no PRD parece novo, removido, re-priorizado ou sem task correspondente. Inclua tasks órfãs (sem RF/US no PRD atual).
 3. **Proposta de patch (não aplique ainda):** Liste mudanças concretas:
-   - **Adicionar** tasks novas (id sugerido, `[M]`/`[S]`/`[C]`, **PRD:**, **DoD:**, blockers).
+   - **Adicionar** tasks novas (id sugerido, `[M]`/`[S]`/`[C]`, **PRD:**, **DoD:** com comandos e testes propostos ativamente pela IA com base na Stack do PRD, blockers).
    - **Editar** tasks existentes (título, prioridade, PRD/US, DoD, blockers) — preserve `[x]` se o trabalho feito ainda for válido.
    - **Remover ou cancelar** tasks que contradizem fora de escopo / Won’t-have (prefira `- [ ] ~~texto~~ (cancelada: motivo)` a apagar histórico se já havia progresso).
    - **Reordenar** se dependências mudaram.

@@ -3,6 +3,7 @@
 > Derivado de `prd.md`. **Não é código**, não é backlog de bugs. É o roteiro de execução.
 > Convenção: tasks numeradas por seção (`2.1`, `2.2`...), prioridade `[M]`/`[S]`/`[C]`, checkbox,
 > dependências `(Blocker: 1.1)`, e em cada task os campos **PRD:** e **DoD:**.
+> Se o usuário não souber ou não definir o DoD, a IA DEVE propor ativamente o DoD técnico (comandos/testes) baseado na Stack do PRD.
 > Remova seções que não se aplicam ao PRD. Após mudar o PRD, use `/sync`.
 
 ---
@@ -12,7 +13,7 @@
 ```markdown
 - [ ] {id} `[{M|S|C}]` {título curto} (Blocker: {id})  <!-- Blocker opcional -->
   - **PRD:** {RF-Mx / US-00x / seção do prd.md}
-  - **DoD:** {resultado verificável — comando, comportamento ou artefato}
+  - **DoD:** {resultado verificável — comando de teste, comportamento ou artefato (proposto pela IA se o usuário não especificar)}
 ```
 
 Marque `[x]` **somente** quando o DoD estiver cumprido (ou declare o gap e deixe pendente).

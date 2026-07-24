@@ -89,7 +89,7 @@ Use @docs/prd.md como fonte de verdade e crie @docs/tasks.md com:
 - Cada task deve:
   - Ter escopo pequeno (idealmente executável em 1–2 horas)
   - Ter **PRD:** ligando a RF/US/seção do prd.md
-  - Ter **DoD:** resultado verificável (comando, comportamento ou artefato)
+  - Ter **DoD:** resultado verificável (comando, comportamento ou artefato — a IA DEVE propor os comandos/testes técnicos de acordo com a Stack se o usuário não especificar)
   - Usar `(Blocker: X.Y)` quando houver dependência
 
 Não gere código. Apenas a lista de tasks.
