@@ -1,17 +1,31 @@
 ---
 description: Executa a próxima tarefa disponível no docs/tasks.md baseando-se no PRD. Use ao dizer "/next", "próxima tarefa", "próxima task" ou "continuar execução".
-allowed-tools: Read Write Edit AskUserQuestion run_command
+allowed-tools: Read Write Edit AskUserQuestion Bash
 ---
 
 # /next — Continuar execução de task
 
-Este comando tem a função exclusiva de guiar a execução da próxima tarefa do projeto.
+Guia a execução da **próxima** tarefa do projeto. Uma task por vez. **No PRD, no code.**
 
-## Passos da Skill
+## Regras
+- `docs/prd.md` é a fonte de verdade. Se a task exigir algo fora do PRD, **pare e avise** — não invente requisitos nem mude escopo.
+- Mudanças cirúrgicas: só arquivos necessários à task; sem refatoração "de passagem".
+- Prefira a solução mais simples alinhada à Stack do PRD.
+- Não marque `[x]` sem cumprir o **DoD** (ou sem declarar explicitamente o que falta).
+- Se o PRD mudou desde a última execução e as tasks parecem desatualizadas, sugira `/sync` antes de codar.
 
-1. **Identificação da Task:** Leia o arquivo `docs/tasks.md`. Localize a primeira task pendente (que não tenha a marcação `[x]`).
-2. **Verificação de Dependências:** Verifique se a task escolhida tem alguma dependência ou bloqueio (ex: `(Depende de X)` ou `(Blocker: Y)`). Se tiver dependências que ainda não foram concluídas, sugira primeiro a task bloqueadora.
-3. **Confirmação:** Informe o usuário qual é a próxima task identificada e peça permissão para prosseguir com o planejamento dela.
-4. **Resumo e Planejamento:** Uma vez confirmado, leia o `docs/prd.md` e faça um resumo (máximo de 5 frases) relacionando a task ao PRD. Apresente um plano curto (3–5 bullets) de quais arquivos serão modificados.
-5. **Execução:** Após o aval, implemente o mínimo viável para a task na stack acordada no PRD. Adote práticas TDD se a task especificar critérios BDD (escreva e rode o teste primeiro).
-6. **Finalização:** Explique como testar as modificações e, em seguida, atualize o arquivo `docs/tasks.md`, marcando a tarefa como concluída `[x]`.
+## Passos
+
+1. **Identificação:** Leia `docs/tasks.md`. Localize a primeira task pendente (sem `[x]`).
+2. **Dependências:** Se houver `(Blocker: X.Y)` ou `(Depende de X)` e o bloqueador não estiver `[x]`, proponha o bloqueador primeiro.
+3. **Confirmação:** Informe a task escolhida (id, prioridade, PRD/US, DoD) e peça permissão para planejar.
+4. **Resumo e plano:** Com o aval, leia `docs/prd.md`. Resuma em ≤5 frases a ligação task ↔ PRD. Plano em 3–5 bullets (arquivos, componentes, critérios Gherkin relevantes).
+5. **Execução:** Implemente o mínimo viável na stack do PRD.
+   - Se houver critérios BDD/Gherkin na US ligada, faça TDD: escreva/rode o teste primeiro.
+6. **Validação (obrigatória):**
+   - Execute o que o **DoD** pede (comandos de teste/lint/build, smoke manual se aplicável).
+   - Liste: o que rodou e passou; o que **não** foi verificado.
+   - Não afirme "passou" sem ter rodado.
+7. **Finalização:**
+   - Se DoD cumprido → marque `[x]` em `docs/tasks.md` e diga como o usuário pode revalidar.
+   - Se DoD incompleto → **não** marque `[x]`; deixe claro o gap e o próximo passo.

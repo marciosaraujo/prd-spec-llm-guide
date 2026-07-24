@@ -84,12 +84,13 @@ Quero gerar uma lista de tarefas a partir do PRD.
 
 Use @docs/prd.md como fonte de verdade e crie @docs/tasks.md com:
 
-- Seções por área (ex.: Setup, Backend/Core, Frontend/UI, Integrações externas, LLM, Testes/Qualidade, Observabilidade, Deploy, Documentação)
+- Seções por área (ex.: Setup, Backend/Core, Frontend/UI, Integrações externas, LLM, Testes/Qualidade, Observabilidade, Deploy, Documentação) — remova seções sem correspondente no PRD
 - Tasks numeradas (ex.: 0.1, 0.2, 1.1, 2.1, etc.)
 - Cada task deve:
   - Ter escopo pequeno (idealmente executável em 1–2 horas)
-  - Ter um resultado verificável (Definition of Done implícito)
-  - Estar ligada a partes específicas do PRD (a IA pode citar IDs de requisitos ou user stories)
+  - Ter **PRD:** ligando a RF/US/seção do prd.md
+  - Ter **DoD:** resultado verificável (comando, comportamento ou artefato)
+  - Usar `(Blocker: X.Y)` quando houver dependência
 
 Não gere código. Apenas a lista de tasks.
 ```
@@ -191,17 +192,23 @@ Para este projeto:
 
 ### 7.2 Como avisar a LLM sobre mudanças
 
+Preferível: skill **`/sync`** (propõe patch em `tasks.md`, espera revisão humana, aplica).
+
+Manual:
+
 ```text
-Atualizei o PRD em @docs/prd.md.
+Atualizei o PRD em @docs/prd.md (atualize também o Histórico de Revisões).
 
 1. Leia as mudanças e faça um resumo.
 2. Identifique quais seções de @docs/tasks.md precisam ser ajustadas.
-3. Proponha um patch para o task list (podendo adicionar/remover/editar tasks).
+3. Proponha um patch (adicionar/editar/cancelar tasks) com **PRD:** e **DoD:** em cada task nova/alterada.
+4. Espere confirmação antes de editar docs/tasks.md.
 ```
 
 ### 7.3 Quando atualizar o Task List
 
-- Quando tasks forem concluídas.
+- Quando tasks forem concluídas (marque `[x]` só se o **DoD** foi cumprido).
+- Quando o PRD mudar → `/sync` antes de continuar a codar.
 - Quando “descobrir” nova necessidade derivada do PRD.
 - Quando repriorizar features (trocar Must/Should/Could).
 

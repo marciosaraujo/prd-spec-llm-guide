@@ -1,6 +1,6 @@
 # PRD-Spec LLM Guide
 
-Template para iniciar projetos em **PRD-driven / Spec-driven development** com uma LLM (Claude, etc.).
+Template para iniciar projetos em **PRD-driven / Spec-driven development** com uma LLM (Claude, Cursor, Gemini, Grok, etc.).
 
 Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 
@@ -11,10 +11,11 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
    cp -r prd-spec-llm-guide meu-app-novo
    ```
    (ou clique em **Use this template** no GitHub)
-2. No Claude Code, rode **`/start`** — ele entrevista você para preencher a
+2. No agente com skills, rode **`/start`** — ele entrevista você para preencher a
    ideia, gera `prd.md` e `tasks.md` e executa as tasks uma por vez. Opcional:
    passe um pitch, ex. `/start app de finanças pessoais`.
-   - **Dica**: Use a skill **`/next`** para continuar o desenvolvimento de onde parou. Ela identifica a próxima task pendente e retoma a execução com base no PRD.
+   - **`/next`** — continua na próxima task pendente (com DoD e validação).
+   - **`/sync`** — recalibra `tasks.md` depois que o PRD mudar (sem gerar código).
 3. Prefere manual? Preencha nesta ordem:
    - `docs/idea.md` — a partir de `docs/idea-template.md`
    - `docs/prd.md` — a partir de `docs/prd-template.md` (fonte de verdade)
@@ -22,14 +23,17 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 
    e execute as tasks seguindo `docs/process-task-list.md`. **No PRD, no code.**
 
-> As skills (`/start` e `/next`) ficam em `.claude/skills/` (para Claude Code) e `.gemini/skills/` (para Google Antigravity). 
-> Em projetos recém-copiados, as skills só aparecem após você reiniciar o seu assistente de IA (a pasta precisa estar lá na hora que a sessão iniciar).
+> As skills (`/start`, `/next`, `/sync`) ficam em `.claude/skills/` (Claude Code) e `.gemini/skills/` (Google Antigravity).  
+> Regras para qualquer agente: `AGENTS.md` (e `CLAUDE.md` como espelho para Claude Code).  
+> Em projetos recém-copiados, reinicie o assistente para carregar as skills.
 
 ## Destaques do Template
 
-- **Histórico de Revisões**: O template de PRD (`docs/prd-template.md`) exige documentar o log de alterações (Changelog) para evitar que a IA se perca ao longo do tempo.
-- **TDD via BDD (Gherkin)**: O template exige Critérios de Aceitação no formato `Given/When/Then`, forçando a IA a criar e passar em testes antes de finalizar implementações reais.
-- **Gestão de Dependências de Tarefas**: O arquivo de tarefas usa anotações como `(Blocker: 1.1)` que a skill `/next` entende para impedir que a IA execute tarefas fora de ordem.
+- **Histórico de Revisões**: O PRD exige changelog para a IA não se perder ao longo do tempo.
+- **TDD via BDD (Gherkin)**: Critérios de aceitação em `Given/When/Then`; skills pedem teste antes do código quando houver US ligada.
+- **DoD + link ao PRD**: Cada task no template tem **PRD:** (RF/US) e **DoD:** verificável; `[x]` só com DoD cumprido.
+- **Dependências**: `(Blocker: 1.1)` impede execução fora de ordem (`/next` respeita).
+- **`/sync`**: Quando o PRD muda, propõe patch em `tasks.md` com revisão humana antes de aplicar.
 
 ## Arquivos
 
@@ -38,5 +42,6 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 | `guide.md` | Explicação conceitual do fluxo completo |
 | `docs/process-task-list.md` | Guia operacional do loop com a LLM |
 | `docs/*-template.md` | Moldes de idea, PRD e tasks |
-| `.claude/skills/` & `.gemini/skills/` | Skills `/start` e `/next` que conduzem o fluxo via IA (Suporte múltiplo de agentes) |
-| `CLAUDE.md` | Regras de operação lidas pelo Claude Code |
+| `.claude/skills/` & `.gemini/skills/` | Skills `/start`, `/next`, `/sync` |
+| `AGENTS.md` | Regras de operação para agentes em geral |
+| `CLAUDE.md` | Espelho das regras para Claude Code |
