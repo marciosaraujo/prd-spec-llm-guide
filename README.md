@@ -4,6 +4,15 @@ Template para iniciar projetos em **PRD-driven / Spec-driven development** com u
 
 Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 
+## Conceitos-Chave
+
+- 📋 **PRD / Spec-driven Development:** Em vez de mandar prompts soltos (*"crie uma tela de login"*), definimos primeiro um PRD (Product Requirements Document) como **fonte de verdade**. A IA não inventa requisitos nem muda o escopo: ela consulta a especificação antes de propor qualquer código.
+- 📜 **Histórico de Revisões (Changelog do PRD):** O PRD possui um registro de alterações obrigatório. Quando um requisito muda, o changelog é atualizado para que a IA não perca o contexto do projeto nem aplique mudanças conflitantes.
+- 🔗 **Grafo de Dependências (`Blocker: X.Y`):** As tarefas possuem bloqueadores explícitos. A IA respeita a ordem de execução e nunca tenta construir uma funcionalidade (ex: tela de checkout) antes dos seus pré-requisitos (ex: API de pagamento ou modelos de dados) estarem concluídos.
+- 🧪 **TDD via BDD (Gherkin):** Test-Driven Development aliado a Behavior-Driven Development. As regras de negócio são descritas em formato de cenários (`Dado que... Quando... Então...`). A IA cria e roda os testes baseados nesses cenários *antes* de implementar o código de produção.
+- 🎯 **DoD (Definition of Done) & Proposição Ativa:** Uma tarefa só é marcada como concluída `[x]` quando o teste ou comando de validação roda com sucesso. Se o usuário não souber como testar, a própria IA propõe o DoD e os testes adequados para a stack.
+- ⚡ **Skills Nativas (`/start`, `/next`, `/sync`, `/status`):** Atalhos prontos para os agentes (Claude Code e Antigravity) que guiam o ciclo de vida completo do projeto sem a necessidade de escrever prompts gigantes no chat.
+
 ## Como usar
 
 1. Copie este repositório para o seu projeto novo:
