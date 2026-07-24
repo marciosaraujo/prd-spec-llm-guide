@@ -1,14 +1,14 @@
-# CLAUDE.md
+# AGENTS.md
 
 Kit de **PRD-driven / Spec-driven development** com LLM. Os arquivos aqui são templates e guias reutilizáveis — não um produto.
 
-Regras canônicas também em `AGENTS.md` (para outros agentes). Mantenha os dois alinhados.
+Este arquivo é a fonte de regras para agentes (Cursor, Codex, Grok Build, etc.). O `CLAUDE.md` espelha as mesmas regras para o Claude Code.
 
 ## Arquivos
 - `guide.md` — explicação conceitual do fluxo (leitura de fundo).
 - `docs/process-task-list.md` — guia operacional: como rodar o loop com a LLM.
 - `docs/idea-template.md`, `docs/prd-template.md`, `docs/tasks-template.md` — moldes vazios.
-- `.claude/skills/` — skills `/start`, `/next`, `/sync` (espelhadas em `.gemini/skills/`).
+- Skills em `.claude/skills/` e `.gemini/skills/`: `/start`, `/next`, `/sync`.
 
 ## Fluxo
 `idea.md` → `prd.md` → `tasks.md` → execução. **No PRD, no code**: não codar antes de ter um PRD minimamente consistente.
