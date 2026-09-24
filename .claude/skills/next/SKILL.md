@@ -16,7 +16,7 @@ Guia a execução da **próxima** tarefa do projeto. Uma task por vez. **No PRD,
 
 ## Passos
 
-1. **Identificação:** Leia `docs/tasks.md`. Localize a primeira task pendente (sem `[x]`).
+1. **Identificação:** Leia `docs/tasks.md`. Localize a primeira task pendente (sem `[x]`). **Pule as canceladas** — tachadas no formato `- [ ] ~~texto~~ (cancelada: motivo)` que o `/sync` aplica: continuam `[ ]`, mas não devem ser executadas.
 2. **Dependências:** Se houver `(Blocker: X.Y)` ou `(Depende de X)` e o bloqueador não estiver `[x]`, proponha o bloqueador primeiro.
 3. **Confirmação:** Informe a task escolhida (id, prioridade, PRD/US, DoD) e peça permissão para planejar.
 4. **Resumo e plano:** Com o aval, leia `docs/prd.md`. Resuma em ≤5 frases a ligação task ↔ PRD. Plano em 3–5 bullets (arquivos, componentes, critérios Gherkin relevantes). **Refino de Testes/DoD:** Se o DoD da tarefa for genérico ou vago, proponha ativamente no plano os testes e comandos exatos (unitário/integração/E2E) que serão criados e executados para validar a task.
