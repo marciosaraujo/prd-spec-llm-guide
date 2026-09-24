@@ -14,7 +14,7 @@ Pitch inicial do usuário (pode estar vazio): $ARGUMENTS
 
 Artefatos já existentes em `docs/`:
 ```!
-ls -1 docs/idea.md docs/prd.md docs/tasks.md 2>/dev/null || echo "(nenhum ainda)"
+ls -1 docs/idea.md docs/prd.md docs/tasks.md 2>/dev/null | grep . || echo "(nenhum ainda)"
 ```
 Retome na **primeira fase incompleta** acima — não recomece o que já existe.
 Confirme antes de sobrescrever qualquer arquivo.
