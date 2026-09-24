@@ -18,6 +18,13 @@
 
 Marque `[x]` **somente** quando o DoD estiver cumprido (ou declare o gap e deixe pendente).
 
+Task descartada (fora de escopo, Won't-have) fica tachada, não apagada — preserva o histórico e é
+ignorada por `/next` e pelas contagens do `/status`:
+
+```markdown
+- [ ] {id} `[{M|S|C}]` ~~{título}~~ (cancelada: {motivo})
+```
+
 ---
 
 ## 0. Setup de projeto
