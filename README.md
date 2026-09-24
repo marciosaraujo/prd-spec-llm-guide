@@ -6,12 +6,14 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 
 ## Conceitos-Chave
 
-- 📋 **PRD / Spec-driven Development:** Em vez de mandar prompts soltos (*"crie uma tela de login"*), definimos primeiro um PRD (Product Requirements Document) como **fonte de verdade**. A IA não inventa requisitos nem muda o escopo: ela consulta a especificação antes de propor qualquer código.
-- 📜 **Histórico de Revisões (Changelog do PRD):** O PRD possui um registro de alterações obrigatório. Quando um requisito muda, o changelog é atualizado para que a IA não perca o contexto do projeto nem aplique mudanças conflitantes.
-- 🔗 **Grafo de Dependências (`Blocker: X.Y`):** As tarefas possuem bloqueadores explícitos. A IA respeita a ordem de execução e nunca tenta construir uma funcionalidade (ex: tela de checkout) antes dos seus pré-requisitos (ex: API de pagamento ou modelos de dados) estarem concluídos.
-- 🧪 **TDD via BDD (Gherkin):** Test-Driven Development aliado a Behavior-Driven Development. As regras de negócio são descritas em formato de cenários (`Dado que... Quando... Então...`). A IA cria e roda os testes baseados nesses cenários *antes* de implementar o código de produção.
-- 🎯 **DoD (Definition of Done) & Proposição Ativa:** Uma tarefa só é marcada como concluída `[x]` quando o teste ou comando de validação roda com sucesso. Se o usuário não souber como testar, a própria IA propõe o DoD e os testes adequados para a stack.
-- ⚡ **Skills Nativas (`/start`, `/next`, `/sync`, `/status`):** Atalhos prontos para os agentes (Claude Code e Antigravity) que guiam o ciclo de vida completo do projeto sem a necessidade de escrever prompts gigantes no chat.
+- 📋 **PRD como fonte de verdade:** Em vez de prompts soltos (*"crie uma tela de login"*), define-se primeiro um PRD. A IA não inventa requisitos nem muda o escopo: consulta a especificação antes de propor qualquer código.
+- 📜 **Histórico de Revisões (changelog do PRD):** Registro de alterações obrigatório. Quando um requisito muda, o changelog é atualizado para que a IA não perca contexto nem aplique mudanças conflitantes.
+- 🔗 **Grafo de dependências (`Blocker: X.Y`):** Bloqueadores explícitos entre tasks. A IA nunca tenta construir a tela de checkout antes da API de pagamento (`/next` respeita a ordem).
+- 🧪 **TDD via BDD (Gherkin):** Critérios de aceitação em `Given/When/Then`. Havendo US ligada à task, a IA escreve e roda o teste *antes* do código de produção.
+- 🎯 **DoD verificável + link ao PRD:** Cada task carrega **PRD:** (RF/US) e **DoD:** (comando ou comportamento). `[x]` só quando a validação roda com sucesso — e se você não souber como testar, a IA propõe o DoD e os testes de acordo com a Stack do PRD.
+- ⚡ **Skills nativas:** `/start` (bootstrap), `/next` (próxima task), `/sync` (recalibra tasks após mudança no PRD, com revisão humana), `/status` (dashboard por prioridade). Sem prompts gigantes no chat.
+
+> O **porquê** de cada etapa está em `guide.md`.
 
 ## Como usar
 
@@ -36,16 +38,6 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 > As skills (`/start`, `/next`, `/sync`, `/status`) ficam em `.claude/skills/` (Claude Code) e `.gemini/skills/` (Google Antigravity).  
 > Regras para qualquer agente: `AGENTS.md` (e `CLAUDE.md` como espelho para Claude Code).  
 > Em projetos recém-copiados, reinicie o assistente para carregar as skills.
-
-## Destaques do Template
-
-- **Histórico de Revisões**: O PRD exige changelog para a IA não se perder ao longo do tempo.
-- **TDD via BDD (Gherkin)**: Critérios de aceitação em `Given/When/Then`; skills pedem teste antes do código quando houver US ligada.
-- **Proposição Ativa de DoD & Testes**: Se você não souber como testar ou qual DoD definir, a IA propõe ativamente testes e comandos de validação concretos baseados na Stack do PRD.
-- **DoD + link ao PRD**: Cada task no template tem **PRD:** (RF/US) e **DoD:** verificável; `[x]` só com DoD cumprido.
-- **Dependências**: `(Blocker: 1.1)` impede execução fora de ordem (`/next` respeita).
-- **`/status`**: Dashboard instantâneo no chat com percentual por prioridade (Must/Should/Could) e próximos passos.
-- **`/sync`**: Quando o PRD muda, propõe patch em `tasks.md` com revisão humana antes de aplicar.
 
 ## Arquivos
 
