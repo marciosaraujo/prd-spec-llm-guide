@@ -8,7 +8,7 @@ Este arquivo é a fonte de regras para agentes (Cursor, Codex, Grok Build, etc.)
 - `guide.md` — explicação conceitual do fluxo (leitura de fundo).
 - `docs/process-task-list.md` — guia operacional: como rodar o loop com a LLM.
 - `docs/idea-template.md`, `docs/prd-template.md`, `docs/tasks-template.md` — moldes vazios.
-- Skills em `.claude/skills/` e `.gemini/skills/`: `/start`, `/next`, `/sync`, `/status`.
+- Skills em `.claude/skills/` e `.gemini/skills/`: `/start`, `/next`, `/sync`, `/status`. **São espelhos: ao editar uma skill, aplique a MESMA mudança nos dois caminhos.**
 
 ## Fluxo
 `idea.md` → `prd.md` → `tasks.md` → execução. **No PRD, no code**: não codar antes de ter um PRD minimamente consistente.
