@@ -227,6 +227,13 @@ Inclua alguns exemplos input→output:
 }
 ```
 
+### 9.5 Modelo, custo e latência
+Decisão explícita — sem isso a implementação escolhe o modelo por conta própria:
+- **Modelo e provedor** (ex.: Claude Sonnet 5) e **por quê**: capacidade necessária, custo ou latência.
+- **Teto de custo** por request e/ou mensal (amarre com §5.6 Custos).
+- **Latência aceitável** por chamada (amarre com §5.1 Performance) e se há streaming.
+- **Fallback**: o que acontece se o provedor cair, atingir rate limit ou estourar o orçamento.
+
 ---
 
 ## 10. Métricas de sucesso

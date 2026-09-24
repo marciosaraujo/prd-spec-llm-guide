@@ -75,8 +75,8 @@ ignorada por `/next` e pelas contagens do `/status`:
 
 ## 5. LLM / IA (se houver)
 - [ ] 5.1 `[M]` Configurar cliente LLM
-  - **PRD:** §9 Diretrizes LLM / §6 Stack
-  - **DoD:** Cliente autentica e completa um request de smoke
+  - **PRD:** §9.1 Papel / §9.5 Modelo, custo e latência / §6 Stack
+  - **DoD:** Cliente autentica no modelo definido em §9.5 e completa um request de smoke
 - [ ] 5.2 `[M]` Definir prompts e formatos de entrada/saída (Blocker: 5.1)
   - **PRD:** §9.2–9.4
   - **DoD:** Exemplos input→output do PRD reproduzidos ou validados por schema
