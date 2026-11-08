@@ -1,4 +1,5 @@
 ---
+name: start
 description: Inicia um projeto PRD-driven do zero. Entrevista o usuário para preencher a ideia, gera prd.md e tasks.md e executa as tasks uma por vez. Use ao dizer "/start", "começar projeto", "iniciar projeto" ou "tocar o fluxo do início".
 argument-hint: "[pitch curto da ideia (opcional)]"
 allowed-tools: Read Write Edit AskUserQuestion Bash

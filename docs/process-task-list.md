@@ -30,7 +30,7 @@ Regra: **No PRD, no code** – não começar a codar antes de ter um PRD minimam
 
 ## 3. O loop com skills (modo padrão)
 
-Em agentes com skills (Claude Code via `.claude/skills/`, Google Antigravity via `.gemini/skills/`):
+Em agentes com skills (Claude Code via `.claude/skills/`, Google Antigravity via `.agents/skills/`):
 
 | Skill | O que faz | Quando usar |
 |---|---|---|
