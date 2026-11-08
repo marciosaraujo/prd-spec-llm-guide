@@ -171,7 +171,9 @@ Use @docs/prd.md e crie @docs/tasks.md seguindo @docs/tasks-template.md:
 - Tasks numeradas (ex: 2.1, 2.2...)
 - Cada task deve:
   - Ter escopo pequeno (1–2h ideal)
-  - Ter os campos PRD: e DoD:
+  - Ter prioridade [M]/[S]/[C] e os campos PRD: e DoD:
+  - Ter DoD verificável — se eu não especificar, proponha os comandos de teste/lint/build
+  - Declarar dependências como (Blocker: X.Y)
   - Ser implementável sem decidir requisitos novos
 
 Não gere código. Apenas tasks.

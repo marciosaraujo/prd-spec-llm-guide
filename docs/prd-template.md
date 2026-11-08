@@ -211,6 +211,9 @@ Especifique:
 - Idioma de resposta (ex.: sempre PT-BR)
 - O que a LLM pode ou não pode fazer (ex.: não tomar decisões críticas sem confirmação)
 - Como lidar com baixa confiança / incerteza
+- **Segurança / guardrails:** todo input de usuário ou de fonte externa é não confiável (prompt
+  injection); que dados sensíveis/PII podem ou não ir ao provedor; saída validada por schema antes
+  de ser usada; quais ferramentas/ações a LLM pode acionar e quais exigem confirmação humana
 
 ### 9.4 Exemplos de prompts e respostas
 Inclua alguns exemplos input→output:
@@ -230,9 +233,19 @@ Inclua alguns exemplos input→output:
 ### 9.5 Modelo, custo e latência
 Decisão explícita — sem isso a implementação escolhe o modelo por conta própria:
 - **Modelo e provedor** (ex.: Claude Sonnet 5) e **por quê**: capacidade necessária, custo ou latência.
+  Fixe o ID exato da versão — trocar de modelo é mudança de PRD e exige rodar as evals (§9.6).
 - **Teto de custo** por request e/ou mensal (amarre com §5.6 Custos).
 - **Latência aceitável** por chamada (amarre com §5.1 Performance) e se há streaming.
 - **Fallback**: o que acontece se o provedor cair, atingir rate limit ou estourar o orçamento.
+- **Medição**: tokens, custo e latência registrados por chamada — sem isso o teto acima não é verificável.
+
+### 9.6 Avaliação (evals)
+Saída de LLM não é determinística: Gherkin cobre o comportamento do sistema, não a qualidade da resposta.
+- **Dataset**: N casos input→esperado (happy path, edge cases e tentativas de injection de §9.3).
+- **Métrica e limiar**: como cada caso é julgado (match exato, schema, rubrica, LLM-as-judge) e a
+  taxa mínima para aprovar (ex.: ≥ 90%).
+- **Quando rodar**: a cada mudança de prompt, de modelo ou de parâmetros; nos testes unitários a LLM
+  é mockada.
 
 ---
 

@@ -86,7 +86,10 @@ ignorada por `/next` e pelas contagens do `/status`:
   - **DoD:** Exemplos input→output do PRD reproduzidos ou validados por schema
 - [ ] 5.3 `[M]` Implementar fluxo de chamada LLM no backend (Blocker: 5.2)
   - **PRD:** US-00x / §9
-  - **DoD:** Fluxo end-to-end da US passa nos critérios de aceitação
+  - **DoD:** Fluxo end-to-end da US passa nos critérios de aceitação (LLM mockada nos testes unitários)
+- [ ] 5.4 `[M]` Suite de evals (Blocker: 5.2)
+  - **PRD:** §9.6 Avaliação / §9.3 Segurança
+  - **DoD:** Comando de eval roda o dataset de §9.6 (inclui casos de injection) e atinge o limiar definido
 
 ## 6. Testes e qualidade (transversais)
 > Só o que atravessa várias tasks. **Teste unitário não entra aqui**: vai no DoD da própria task
@@ -100,12 +103,14 @@ ignorada por `/next` e pelas contagens do `/status`:
   - **DoD:** Smoke do happy path documentado e executável
 - [ ] 6.3 `[M]` Gate de testes na CI (Blocker: 0.2)
   - **PRD:** §6 Stack e restrições técnicas
-  - **DoD:** CI roda a suite completa e falha o build se algum teste quebrar
+  - **DoD:** CI roda a suite completa, secret scan e auditoria de dependências (pacote inexistente ou
+    vulnerável — IA alucina nomes de pacote), e falha o build se qualquer um quebrar
 
 ## 7. Observabilidade e operação
 - [ ] 7.1 `[S]` Logging estruturado
   - **PRD:** §5 Requisitos não funcionais
-  - **DoD:** Logs estruturados nas bordas principais (request/erro)
+  - **DoD:** Logs estruturados nas bordas principais (request/erro); se houver LLM, tokens, custo e
+    latência por chamada (§9.5)
 - [ ] 7.2 `[C]` Métricas e dashboards
   - **PRD:** §10 Métricas / §5
   - **DoD:** Métrica mínima exposta ou dashboard stub documentado
