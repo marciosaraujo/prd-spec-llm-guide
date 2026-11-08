@@ -1,4 +1,5 @@
 ---
+name: status
 description: Exibe o status atual do projeto, progresso por prioridade (Must/Should/Could), blockers ativos e próxima tarefa elegível. Use ao dizer "/status", "status do projeto" ou "progresso".
 allowed-tools: Read
 ---

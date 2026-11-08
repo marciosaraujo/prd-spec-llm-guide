@@ -1,4 +1,5 @@
 ---
+name: sync
 description: Recalibra docs/tasks.md após mudanças no PRD. Use ao dizer "/sync", "sincronizar tasks", "atualizar tasks do PRD" ou "PRD mudou".
 allowed-tools: Read Write Edit AskUserQuestion
 ---
