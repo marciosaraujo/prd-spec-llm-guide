@@ -18,6 +18,10 @@
 
 Marque `[x]` **somente** quando o DoD estiver cumprido (ou declare o gap e deixe pendente).
 
+**Testes:** task ligada a uma US tem o teste (critério Gherkin) no próprio DoD e **depende de `0.2`**
+(`Blocker: 0.2`) — sem runner configurado não há TDD. Basta o blocker na primeira task de cada
+área; o resto herda pela cadeia.
+
 Task descartada (fora de escopo, Won't-have) fica tachada, não apagada — preserva o histórico e é
 ignorada por `/next` e pelas contagens do `/status`:
 
@@ -44,7 +48,7 @@ ignorada por `/next` e pelas contagens do `/status`:
   - **DoD:** Contratos (rotas, eventos ou interfaces) descritos e revisados
 
 ## 2. Backend / Core
-- [ ] 2.1 `[M]` Implementar skeleton do servidor / serviço
+- [ ] 2.1 `[M]` Implementar skeleton do servidor / serviço (Blocker: 0.2)
   - **PRD:** RF-M… / §6 Stack
   - **DoD:** Serviço sobe localmente; healthcheck ou equivalente responde
 - [ ] 2.2 `[M]` Implementar modelos de dados (Blocker: 2.1)
@@ -55,7 +59,7 @@ ignorada por `/next` e pelas contagens do `/status`:
   - **DoD:** Endpoints do happy path respondem conforme critérios Gherkin da US
 
 ## 3. Frontend / UI (se houver)
-- [ ] 3.1 `[S]` Criar projeto base
+- [ ] 3.1 `[S]` Criar projeto base (Blocker: 0.2)
   - **PRD:** §6 Stack (frontend)
   - **DoD:** App sobe em dev e renderiza página placeholder
 - [ ] 3.2 `[S]` Implementar layout principal (Blocker: 3.1)
@@ -74,7 +78,7 @@ ignorada por `/next` e pelas contagens do `/status`:
   - **DoD:** Idem para o serviço Y
 
 ## 5. LLM / IA (se houver)
-- [ ] 5.1 `[M]` Configurar cliente LLM
+- [ ] 5.1 `[M]` Configurar cliente LLM (Blocker: 0.2)
   - **PRD:** §9.1 Papel / §9.5 Modelo, custo e latência / §6 Stack
   - **DoD:** Cliente autentica no modelo definido em §9.5 e completa um request de smoke
 - [ ] 5.2 `[M]` Definir prompts e formatos de entrada/saída (Blocker: 5.1)
@@ -84,16 +88,19 @@ ignorada por `/next` e pelas contagens do `/status`:
   - **PRD:** US-00x / §9
   - **DoD:** Fluxo end-to-end da US passa nos critérios de aceitação
 
-## 6. Testes e qualidade
-- [ ] 6.1 `[M]` Testes unitários do núcleo
-  - **PRD:** §8 User stories (critérios Gherkin)
-  - **DoD:** Suite unitária do núcleo verde na CI ou local
-- [ ] 6.2 `[S]` Testes de integração
+## 6. Testes e qualidade (transversais)
+> Só o que atravessa várias tasks. **Teste unitário não entra aqui**: vai no DoD da própria task
+> (teste primeiro, depois código) — task de teste no fim do plano vira teste-depois.
+
+- [ ] 6.1 `[S]` Testes de integração
   - **PRD:** §4 Fluxos / §5 NFRs
   - **DoD:** Testes de integração dos fluxos Must passam
-- [ ] 6.3 `[S]` Testes end-to-end / smoke tests
+- [ ] 6.2 `[S]` Testes end-to-end / smoke tests
   - **PRD:** §4.1 Happy path
   - **DoD:** Smoke do happy path documentado e executável
+- [ ] 6.3 `[M]` Gate de testes na CI (Blocker: 0.2)
+  - **PRD:** §6 Stack e restrições técnicas
+  - **DoD:** CI roda a suite completa e falha o build se algum teste quebrar
 
 ## 7. Observabilidade e operação
 - [ ] 7.1 `[S]` Logging estruturado
