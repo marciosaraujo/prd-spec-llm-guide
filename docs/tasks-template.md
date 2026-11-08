@@ -3,7 +3,7 @@
 > Derivado de `prd.md`. **Não é código**, não é backlog de bugs. É o roteiro de execução.
 > Convenção: tasks numeradas por seção (`2.1`, `2.2`...), prioridade `[M]`/`[S]`/`[C]`, checkbox,
 > dependências `(Blocker: 1.1)`, e em cada task os campos **PRD:** e **DoD:**.
-> Se o usuário não souber ou não definir o DoD, a IA DEVE propor ativamente o DoD técnico (comandos/testes) baseado na Stack do PRD.
+> DoD ausente ou vago: a IA propõe o DoD técnico (regra em `docs/process-task-list.md` §4).
 > Remova seções que não se aplicam ao PRD. Após mudar o PRD, use `/sync`.
 
 ---

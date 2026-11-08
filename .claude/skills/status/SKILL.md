@@ -18,7 +18,7 @@ Lê `docs/prd.md` e `docs/tasks.md` e apresenta um resumo estruturado do estado 
      - Must-have (`[M]`)
      - Should-have (`[S]`)
      - Could-have (`[C]`)
-   - Identifique a **Próxima Task Elegível** (a primeira tarefa pendente cujos `Blocker:` já estejam concluídos `[x]`).
+   - Identifique a **Próxima Task Elegível** (a primeira tarefa pendente, não cancelada, cujos `Blocker:` já estejam concluídos `[x]` — mesmo critério do `/next`).
    - Identifique tarefas atualmente bloqueadas por dependências em aberto.
    - **Canceladas ficam fora das contagens:** tasks marcadas com tachado (`- [ ] ~~texto~~ (cancelada: motivo)`, formato que o `/sync` aplica) não entram no total nem no numerador — senão o projeto nunca chega a 100%. Reporte-as à parte.
 4. **Apresentação:** Exiba um dashboard formatado em Markdown no seguinte padrão:

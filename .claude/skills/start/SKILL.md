@@ -44,20 +44,12 @@ Apresente e **espere revisão humana** — o PRD é a fonte de verdade.
 Com o PRD aprovado, gere `docs/tasks.md` na estrutura de `@docs/tasks-template.md`:
 - Tasks numeradas, escopo pequeno (1–2h), prioridade `[M]`/`[S]`/`[C]`.
 - Cada task com **PRD:** (RFs/USs) e **DoD:** verificável.
-- **Proposição ativa de DoD:** Se o usuário não definir ou não souber como testar/validar, a IA DEVE propor ativamente o DoD técnico (comandos de teste unitário/integração/E2E, lint, build ou asserção) alinhado com a Stack do PRD.
+- **DoD ausente ou vago:** proponha-o ativamente (regra em `docs/process-task-list.md` §4).
 - Dependências explícitas `(Blocker: X.Y)` quando necessário.
 - Remova seções sem correspondente no PRD — não invente deploy/CI/LLM se o PRD não pedir.
 - Não gere código. Peça revisão de ordem e prioridade.
 
 ## Fase 4 — Execução (loop)
-Uma task por vez, do começo ao fim:
-1. Confirme com o usuário a próxima task (respeite blockers).
-2. Resuma em até 5 frases as partes do PRD que ela toca (use o campo **PRD:** da task).
-3. Plano curto (3–5 bullets: arquivos, componentes, ligação com o PRD).
-4. Se a task/US tiver critérios Gherkin, prefira TDD: teste primeiro, depois código.
-5. Implemente o mínimo, na solução mais simples consistente com a Stack do PRD.
-6. **Validação obrigatória:** rode o que o DoD pede (teste/lint/build focado). Liste o que **não** foi verificado — não afirme que passou se não rodou.
-7. Marque `[x]` em `docs/tasks.md` **somente** se o DoD foi cumprido; senão deixe pendente e declare o gap.
-
-Se algo contrariar o PRD, **pare e avise** — não mude escopo nem invente
-requisitos. Atualize `prd.md` (com changelog) e rode `/sync` quando requisitos mudarem.
+Conduza cada task exatamente como a skill `/next` (mesmo passo a passo: elegibilidade
+por blockers, tasks canceladas, plano, TDD, validação, `[x]` só com DoD cumprido),
+uma por vez, repetindo até acabar as tasks ou o usuário parar.
