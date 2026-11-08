@@ -9,7 +9,8 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 - 📋 **PRD como fonte de verdade:** Em vez de prompts soltos (*"crie uma tela de login"*), define-se primeiro um PRD. A IA não inventa requisitos nem muda o escopo: consulta a especificação antes de propor qualquer código.
 - 📜 **Histórico de Revisões (changelog do PRD):** Registro de alterações obrigatório. Quando um requisito muda, o changelog é atualizado para que a IA não perca contexto nem aplique mudanças conflitantes.
 - 🔗 **Grafo de dependências (`Blocker: X.Y`):** Bloqueadores explícitos entre tasks. A IA nunca tenta construir a tela de checkout antes da API de pagamento (`/next` respeita a ordem).
-- 🧪 **TDD via BDD (Gherkin):** Critérios de aceitação em `Given/When/Then`. Havendo US ligada à task, a IA escreve e roda o teste *antes* do código de produção.
+- 🧪 **TDD via BDD (Gherkin):** Critérios de aceitação em `Given/When/Then`. Havendo US ligada à task, a IA escreve o teste e o mostra **falhando** *antes* do código de produção — e nunca altera ou afrouxa um teste para fazê-lo passar.
+- 🤖 **Features com LLM sob controle:** o PRD define modelo com versão fixa, teto de custo, guardrails (prompt injection, PII) e uma suíte de **evals** com limiar de aprovação, que roda a cada mudança de prompt ou modelo.
 - 🎯 **DoD verificável + link ao PRD:** Cada task carrega **PRD:** (RF/US) e **DoD:** (comando ou comportamento). `[x]` só quando a validação roda com sucesso — e se você não souber como testar, a IA propõe o DoD e os testes de acordo com a Stack do PRD.
 - ⚡ **Skills nativas:** `/start` (bootstrap), `/next` (próxima task), `/sync` (recalibra tasks após mudança no PRD, com revisão humana), `/status` (dashboard por prioridade). Sem prompts gigantes no chat.
 
@@ -49,3 +50,4 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 | `.claude/skills/` & `.agents/skills/` | Skills `/start`, `/next`, `/sync`, `/status` |
 | `AGENTS.md` | Regras de operação para agentes em geral |
 | `CLAUDE.md` | Espelho das regras para Claude Code |
+| `scripts/check.sh` | Checa espelho das skills, `CLAUDE.md` ≡ `AGENTS.md` e referências a `docs/*.md` — rode antes de commitar mudanças no kit |
