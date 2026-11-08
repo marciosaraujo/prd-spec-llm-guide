@@ -22,7 +22,8 @@ Guia a execução da **próxima** tarefa do projeto. Uma task por vez. **No PRD,
 3. **Confirmação:** Informe a task escolhida (id, prioridade, PRD/US, DoD) e peça permissão para planejar.
 4. **Resumo e plano:** Com o aval, leia `docs/prd.md`. Resuma em ≤5 frases a ligação task ↔ PRD. Plano em 3–5 bullets (arquivos, componentes, critérios Gherkin relevantes). **Refino de DoD:** se o DoD for genérico ou vago, proponha no plano os testes e comandos exatos (regra em `docs/process-task-list.md` §4).
 5. **Execução:** Implemente o mínimo viável na stack do PRD.
-   - Se houver critérios BDD/Gherkin na US ligada, faça TDD: escreva/rode o teste primeiro.
+   - Se houver critérios BDD/Gherkin na US ligada, faça TDD: escreva o teste, rode e **mostre-o falhando** (red) antes de implementar.
+   - **Não altere, afrouxe nem pule** um teste para fazê-lo passar. Se o teste parecer errado, pare e avise (regra em `docs/process-task-list.md` §4).
 6. **Validação (obrigatória):**
    - Execute o que o **DoD** pede (comandos de teste/lint/build, smoke manual se aplicável).
    - Liste: o que rodou e passou; o que **não** foi verificado.

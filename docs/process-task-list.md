@@ -64,6 +64,9 @@ Valem nos dois modos:
 - **Proposição ativa de DoD** (regra canônica, as skills e o template apontam para cá): se o
   usuário não definir ou não souber como testar/validar uma task, a IA DEVE propor o DoD técnico
   (comandos de teste unitário/integração/E2E, lint, build ou asserção) alinhado à Stack do PRD.
+- **TDD de verdade**: o teste é escrito e rodado **falhando** (red) antes da implementação, e a
+  falha é mostrada. A IA **não altera, afrouxa nem pula** um teste para fazê-lo passar — se o teste
+  parecer errado, para e avisa.
 
 ---
 
@@ -114,6 +117,9 @@ conflitantes depois.
 
 - **Documentar antes de codar**: atualizar o PRD antes de pedir mudanças grandes à LLM.
 - **Tasks pequenas**: menos complexidade, menos erro, contexto menor.
+- **Sessão limpa por task**: abra nova conversa (ou compacte o contexto) a cada task, ou a cada 2–3
+  tasks pequenas. Tentativas antigas degradam a atenção do modelo e custam tokens; a memória que
+  importa já está em `prd.md`, `tasks.md` e no git.
 - **Feedback constante**: revisar PRD e tasks no fim de cada fase.
 - **Evitar prompts soltos**: sempre referenciar PRD/tasks nas conversas com a LLM.
 
