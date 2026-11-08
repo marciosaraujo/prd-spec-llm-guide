@@ -61,8 +61,9 @@ Valem nos dois modos:
 - **Especificação manda**: se algo contraria o PRD, pare e avise — não invente requisitos.
 - **Mudanças cirúrgicas**: só os arquivos que a task exige, sem refatorar "de passagem".
 - **DoD antes do `[x]`**: marque concluída só depois de rodar a validação (ou declare o gap).
-- **Proposição ativa de DoD**: se você não souber como testar, a IA propõe os comandos/testes
-  com base na Stack do PRD.
+- **Proposição ativa de DoD** (regra canônica, as skills e o template apontam para cá): se o
+  usuário não definir ou não souber como testar/validar uma task, a IA DEVE propor o DoD técnico
+  (comandos de teste unitário/integração/E2E, lint, build ou asserção) alinhado à Stack do PRD.
 
 ---
 
