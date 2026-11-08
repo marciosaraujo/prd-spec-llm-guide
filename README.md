@@ -35,7 +35,7 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 
    e execute as tasks seguindo `docs/process-task-list.md`. **No PRD, no code.**
 
-> As skills (`/start`, `/next`, `/sync`, `/status`) ficam em `.claude/skills/` (Claude Code) e `.gemini/skills/` (Google Antigravity).  
+> As skills (`/start`, `/next`, `/sync`, `/status`) ficam em `.claude/skills/` (Claude Code) e `.agents/skills/` (Google Antigravity).  
 > Regras para qualquer agente: `AGENTS.md` (e `CLAUDE.md` como espelho para Claude Code).  
 > Em projetos recém-copiados, reinicie o assistente para carregar as skills.
 
@@ -46,6 +46,6 @@ Fluxo: **Ideia → PRD/Spec → Task List → Execução (humano + IA)**.
 | `guide.md` | Explicação conceitual do fluxo completo |
 | `docs/process-task-list.md` | Guia operacional do loop com a LLM |
 | `docs/*-template.md` | Moldes de idea, PRD e tasks |
-| `.claude/skills/` & `.gemini/skills/` | Skills `/start`, `/next`, `/sync`, `/status` |
+| `.claude/skills/` & `.agents/skills/` | Skills `/start`, `/next`, `/sync`, `/status` |
 | `AGENTS.md` | Regras de operação para agentes em geral |
 | `CLAUDE.md` | Espelho das regras para Claude Code |

@@ -1,4 +1,5 @@
 ---
+name: next
 description: Executa a próxima tarefa disponível no docs/tasks.md baseando-se no PRD. Use ao dizer "/next", "próxima tarefa", "próxima task" ou "continuar execução".
 allowed-tools: Read Write Edit AskUserQuestion Bash
 ---

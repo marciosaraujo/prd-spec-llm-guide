@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.." || exit 1
 fail=0
 
 # 1. Skills espelhadas
-diff -r .claude/skills .gemini/skills >/dev/null || { echo "FAIL: .claude/skills e .gemini/skills divergem"; fail=1; }
+diff -r .claude/skills .agents/skills >/dev/null || { echo "FAIL: .claude/skills e .agents/skills divergem"; fail=1; }
 
 # 2. CLAUDE.md ≡ AGENTS.md (ignora título e a linha 5, que é a única que difere)
 # ponytail: acoplado às linhas 1 e 5; se o cabeçalho mudar, ajustar o sed
